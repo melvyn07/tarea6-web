@@ -21,7 +21,7 @@
 </head>
 
 <style>
-  html 
+
   { 
   background: url(http://www.angelesdelanoche.org/wordpress/wp-content/uploads/2015/11/183497-agenda-islamiste-cach-damir-khadir-enfin-retrouv.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -84,7 +84,7 @@
 
             <div class="input-group pagination-centered">
               <div class="input-group-addon">Nombre</div>
-              <input id="Nombre" type="text" class="form-control" name="Nombre" placeholder="Nombre">
+              <input  requiered id="Nombre" type="text" class="form-control" name="Nombre" placeholder="Nombre">
             </div>
 
             <div class="input-group pagination-centered">
@@ -94,7 +94,7 @@
             
             <div class="input-group pagination-centered">
               <div class="input-group-addon">Cédula</div>
-              <input id="Cedula" type="text" class="form-control" name="Cédula" placeholder="xxx-xxx-xxx">
+              <input required id="Cedula" type="text" class="form-control" name="Cédula" placeholder="xxx-xxx-xxx">
             </div>
             
             <div class="input-group pagination-centered">
@@ -103,8 +103,8 @@
             </div>
 
             <div class="input-group pagination-centered">
-              <div class="input-group-addon">Email</div>
-              <input id="Email" type="text" class="form-control" name="Email" placeholder="xxxx@mymail.com">
+              <div class="input-group-addon">correo electronico</div>
+              <input id="Email" type="text" class="form-control" name="Email" placeholder="Ejemplo@gmail.com">
             </div>
 
             <div class="input-group pagination-centered">
@@ -121,8 +121,8 @@
   </form>
      
 
-   <button type = "button" class = "btn btn-warning col-md-2 abs-btn" style = "display:block" onclick="agregarFirma()">
-       ¡Firmar! 
+   <button type = "button" class = "btn btn-primary col-md-2 abs-btn" style = "display:block" onclick="agregarFirma()">
+       ¡ Ingresar Firmar! 
    </button>
 	      
     
@@ -136,12 +136,12 @@ var localization = null ;
 
 function newMarker( person )
 {
-  console.log( person ) ;
+  console.log( gente ) ;
   var marker = new google.maps.Marker(
 	  {
 	    map: map ,
-	    title: person.nombre + " " + person.apellido ,
-	    position: person.hubicacion ,
+	    title: gente.nombre + " " + gente.apellido ,
+	    position: gente.hubicacion ,
 	  }
   );
 }
@@ -153,7 +153,7 @@ function parseSaved( js_str )
    for( var i = 0 ; i < prevData.length ; ++i )
    {
    	   var person = prevData[i] ; 
-   	   newMarker( person ) ;
+   	   newMarker( gente ) ;
    }
 
 }
@@ -203,7 +203,7 @@ function agregarFirma()
     	nombre     : getVal( "Nombre" ) , 
     	apellido   : getVal( "Apellido" ) , 
     	telefono   : getVal( "Telefono" ) ,
-    	email      : getVal( "Email" ) ,
+	correo electronico  : getVal( "Email" ) ,
     	comentario : getVal( "Comentario" ) ,
     	hubicacion : localization ,
     }
